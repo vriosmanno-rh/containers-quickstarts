@@ -17,11 +17,10 @@ ENV MAVEN_VERSION=3.5 \
   PIP_NO_CACHE_DIR=off
 
 ADD ./contrib/bin/ubi.repo /etc/yum.repos.d/ubi.repo
-ADD ./contrib/bin/epel.repo /etc/yum.repos.d/epel.repo
-ADD ./contrib/bin/epel-testing.repo /etc/yum.repos.d/epel-testing.repo
+ADD ./scripts/bootstrap.sh /tmp/bootstrap.sh
 
 # Install Maven
-RUN chmod +x scripts/bootstrap.sh && scripts/bootstrap.sh
+RUN chmod +x /tmp/bootstrap.sh && /tmp/bootstrap.sh
 
 # When bash is started non-interactively, to run a shell script, for example it
 # looks for this variable and source the content of this file. This will enable
