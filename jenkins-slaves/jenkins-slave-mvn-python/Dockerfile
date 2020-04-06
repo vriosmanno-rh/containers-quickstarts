@@ -17,6 +17,7 @@ ENV MAVEN_VERSION=3.5 \
   PIP_NO_CACHE_DIR=off
 
 ADD ./contrib/bin/ubi.repo /etc/yum.repos.d/ubi.repo
+ADD ./contrib/bin/redhat.repo /etc/yum.repos.d/redhat.repo
 ADD ./scripts/bootstrap.sh /tmp/bootstrap.sh
 
 # Install Maven
@@ -30,6 +31,6 @@ ADD contrib/bin/configure-agent /usr/local/bin/configure-agent
 ADD ./contrib/settings.xml $HOME/.m2/
 
 RUN chown -R 1001:0 $HOME && \
-  chomod -R g+rw $HOME
+  chmod -R g+rw $HOME
 
 USER 1001
