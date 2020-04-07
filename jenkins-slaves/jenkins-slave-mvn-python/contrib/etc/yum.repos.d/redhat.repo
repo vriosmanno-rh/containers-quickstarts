@@ -1,31 +1,55 @@
 [rhel-7-server-rpms]
-name = Red Hat Enterprise Linux 7 Server (RPMs)
-ui_repoid_vars = basearch
+metadata_expire = 86400
+enabled_metadata = 1
+sslclientcert = /etc/pki/entitlement-host/944126975771038667.pem
 baseurl = https://cdn.redhat.com/content/dist/rhel/server/7/7Server/$basearch/os
+ui_repoid_vars = basearch
+sslverify = 1
+name = Red Hat Enterprise Linux 7 Server (RPMs)
+sslclientkey = /etc/pki/entitlement-host/944126975771038667-key.pem
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
 enabled = 1
+sslcacert = /etc/rhsm/ca/redhat-uep.pem
 gpgcheck = 1
 
 [rhel-7-server-extras-rpms]
-name = Red Hat Enterprise Linux 7 Server - Extras (RPMs)
-ui_repoid_vars = basearch
+metadata_expire = 86400
+enabled_metadata = 0
+sslclientcert = /etc/pki/entitlement-host/944126975771038667.pem
 baseurl = https://cdn.redhat.com/content/dist/rhel/server/7/7Server/$basearch/extras/os
+ui_repoid_vars = basearch
+sslverify = 1
+name = Red Hat Enterprise Linux 7 Server - Extras (RPMs)
+sslclientkey = /etc/pki/entitlement-host/944126975771038667-key.pem
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
-enabled = 1
+enabled = 0
+sslcacert = /etc/rhsm/ca/redhat-uep.pem
 gpgcheck = 1
 
-[rhel-7-server-optional]
-name = Red Hat Enterprise Linux 7 Server - Optional (RPMs)
-ui_repoid_vars = basearch
+[rhel-7-server-optional-rpms]
+metadata_expire = 86400
+enabled_metadata = 0
+sslclientcert = /etc/pki/entitlement-host/944126975771038667.pem
 baseurl = https://cdn.redhat.com/content/dist/rhel/server/7/7Server/$basearch/optional/os
+ui_repoid_vars = basearch
+sslverify = 1
+name = Red Hat Enterprise Linux 7 Server - Optional (RPMs)
+sslclientkey = /etc/pki/entitlement-host/944126975771038667-key.pem
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
-enabled = 1
+enabled = 0
+sslcacert = /etc/rhsm/ca/redhat-uep.pem
 gpgcheck = 1
 
 [rhel-7-server-openstack-10-rpms]
-name = Red Hat OpenStack Platform 10 for RHEL 7 (RPMs)
-ui_repoid_vars = basearch
+metadata_expire = 86400
+enabled_metadata = 0
+sslclientcert = /etc/pki/entitlement-host/944126975771038667.pem
 baseurl = https://cdn.redhat.com/content/dist/rhel/server/7/7Server/$basearch/openstack/10/os
+ui_repoid_vars = basearch
+sslverify = 1
+name = Red Hat OpenStack Platform 10 for RHEL 7 (RPMs)
+sslclientkey = /etc/pki/entitlement-host/944126975771038667-key.pem
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
-enabled = 1
+enabled = 0
+sslcacert = /etc/rhsm/ca/redhat-uep.pem
 gpgcheck = 1

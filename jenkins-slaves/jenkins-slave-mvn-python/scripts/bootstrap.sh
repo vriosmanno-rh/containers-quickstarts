@@ -8,7 +8,7 @@ INSTALL_PYTHON_PKGS="rh-python36 rh-python36-python-devel rh-python36-python-set
 
 rm -f /etc/yum.repos.d/content.repo
 yum $DISABLE_REPOS install -y --nogpgcheck yum-utils
-yum-config-manager --enablerepo='*'
+yum-config-manager -q --enablerepo='*'
 #yum-config-manager --enable='epel'
 yum install -y --nogpgcheck $INSTALL_MAVEN_PKGS $INSTALL_PYTHON_PKGS
 rpm -V $INSTALL_MAVEN_PKGS $INSTALL_PYTHON_PKGS
