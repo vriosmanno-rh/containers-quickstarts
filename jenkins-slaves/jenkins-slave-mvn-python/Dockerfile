@@ -16,8 +16,7 @@ ENV MAVEN_VERSION=3.5 \
   PYTHONIOENCODING=UTF-8 \
   PIP_NO_CACHE_DIR=off
 
-ADD ./contrib/bin/ubi.repo /etc/yum.repos.d/ubi.repo
-ADD ./contrib/bin/redhat.repo /etc/yum.repos.d/redhat.repo
+ADD ./contrib/etc/yum.repos.d /etc/yum.repos.d/
 ADD ./scripts/bootstrap.sh /tmp/bootstrap.sh
 
 # Install Maven
@@ -26,8 +25,7 @@ RUN chmod +x /tmp/bootstrap.sh && /tmp/bootstrap.sh
 # When bash is started non-interactively, to run a shell script, for example it
 # looks for this variable and source the content of this file. This will enable
 # the SCL for all scripts without need to do 'scl_enable'.
-ADD contrib/bin/scl_enable /usr/local/bin/scl_enable
-ADD contrib/bin/configure-agent /usr/local/bin/configure-agent
+ADD ./contrib/usr/local/bin /usr/local/bin/
 ADD ./contrib/settings.xml $HOME/.m2/
 
 RUN chown -R 1001:0 $HOME && \

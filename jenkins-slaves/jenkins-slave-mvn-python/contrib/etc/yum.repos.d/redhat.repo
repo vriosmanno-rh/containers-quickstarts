@@ -1,0 +1,31 @@
+[rhel-7-server-rpms]
+name = Red Hat Enterprise Linux 7 Server (RPMs)
+ui_repoid_vars = basearch
+baseurl = https://cdn.redhat.com/content/dist/rhel/server/7/7Server/$basearch/os
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+enabled = 1
+gpgcheck = 1
+
+[rhel-7-server-extras-rpms]
+name = Red Hat Enterprise Linux 7 Server - Extras (RPMs)
+ui_repoid_vars = basearch
+baseurl = https://cdn.redhat.com/content/dist/rhel/server/7/7Server/$basearch/extras/os
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+enabled = 1
+gpgcheck = 1
+
+[rhel-7-server-optional]
+name = Red Hat Enterprise Linux 7 Server - Optional (RPMs)
+ui_repoid_vars = basearch
+baseurl = https://cdn.redhat.com/content/dist/rhel/server/7/7Server/$basearch/optional/os
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+enabled = 1
+gpgcheck = 1
+
+[rhel-7-server-openstack-10-rpms]
+name = Red Hat OpenStack Platform 10 for RHEL 7 (RPMs)
+ui_repoid_vars = basearch
+baseurl = https://cdn.redhat.com/content/dist/rhel/server/7/7Server/$basearch/openstack/10/os
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+enabled = 1
+gpgcheck = 1
