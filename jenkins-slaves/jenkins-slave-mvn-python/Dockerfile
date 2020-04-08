@@ -1,15 +1,12 @@
-FROM quay.io/openshift/origin-jenkins-agent-base:4.2
+FROM registry.redhat.io/openshift3/jenkins-agent-maven-35-rhel7
 
 EXPOSE 8080
 
+USER root
+
 # TODO: Remove MAVEN_OPTS env once cri-o pushes the $HOME variable in /etc/passwd
-ENV MAVEN_VERSION=3.5 \
-  BASH_ENV=/usr/local/bin/scl_enable \
-  ENV=/usr/local/bin/scl_enable \
-  PROMPT_COMMAND=". /usr/local/bin/scl_enable" \
-  LANG=en_US.UTF-8 \
+ENV LANG=en_US.UTF-8 \
   LC_ALL=en_US.UTF-8 \
-  MAVEN_OPTS="-Duser.home=$HOME" \
   PYTHON_VERSION=3.6 \
   PATH=$HOME/.local/bin/:$PATH \
   PYTHONUNBUFFERED=1 \
@@ -26,9 +23,11 @@ RUN chmod +x /tmp/bootstrap.sh && /tmp/bootstrap.sh
 # looks for this variable and source the content of this file. This will enable
 # the SCL for all scripts without need to do 'scl_enable'.
 ADD ./contrib/usr/local/bin /usr/local/bin/
-ADD ./contrib/settings.xml $HOME/.m2/
+#ADD ./contrib/settings.xml $HOME/.m2/
 
-RUN chown -R 1001:0 $HOME && \
-  chmod -R g+rw $HOME
+#ADD scl_enable /usr/share/container-scripts/
+
+#RUN chown -R 1001:0 $HOME && \
+#  chmod -R g+rw $HOME
 
 USER 1001
