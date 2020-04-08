@@ -1,4 +1,4 @@
-FROM registry.access.redhat.io/openshift3/jenkins-agent-maven-35-rhel7
+FROM registry.access.redhat.com/openshift3/jenkins-agent-maven-35-rhel7
 
 EXPOSE 8080
 
