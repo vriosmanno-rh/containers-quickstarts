@@ -30,7 +30,8 @@ RUN DISABLE_REPOS=--disablerepo='rhel-*' && \
   yum -y clean all --enablerepo='*' && \
   source scl_source enable rh-python36 && \
   scl enable rh-python36 bash && \
-  python3 -m pip install twine pylint pylint-django
+  python3 -m pip install --upgrade pip && \
+  python3 -m pip install twine pylint pylint-django[with_django]
 
 # When bash is started non-interactively, to run a shell script, for example it
 # looks for this variable and source the content of this file. This will enable
