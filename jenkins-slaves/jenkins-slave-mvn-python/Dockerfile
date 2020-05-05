@@ -16,8 +16,21 @@ ENV LANG=en_US.UTF-8 \
 ADD ./contrib/etc/yum.repos.d /etc/yum.repos.d/
 ADD ./scripts/bootstrap.sh /tmp/bootstrap.sh
 
-# Install Maven
-RUN chmod +x /tmp/bootstrap.sh && /tmp/bootstrap.sh
+# Install Python
+# RUN chmod +x /tmp/bootstrap.sh && /tmp/bootstrap.sh
+RUN DISABLE_REPOS=--disablerepo='rhel-*' \
+  INSTALL_PYTHON_PKGS="rh-python36 rh-python36-python-devel rh-python36-python-setuptools \
+    rh-python36-python-wheel rh-python36-python-pip nss_wrapper httpd24 httpd24-httpd-devel \
+    httpd24-mod_ssl httpd24-mod_auth_kerb httpd24-mod_ldap httpd24-mod_session atlas-devel \
+    gcc-gfortran libffi-devel libtool-ltdl enchant" \
+  echo "enabled=0" >> /etc/yum/pluginconf.d/subscription-manager.conf \
+  yum -y update \
+  yum install -y --nogpgcheck $INSTALL_PYTHON_PKGS \
+  rpm -V $INSTALL_PYTHON_PKGS \
+  yum -y clean all --enablerepo='*' \
+  source scl_source enable rh-python36 \
+  scl enable rh-python36 \
+  python3 -m pip install twine pylint pylint-django
 
 # When bash is started non-interactively, to run a shell script, for example it
 # looks for this variable and source the content of this file. This will enable
